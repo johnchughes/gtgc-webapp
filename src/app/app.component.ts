@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-root',
@@ -10,10 +13,16 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'gtgc';
 
-  data: Observable<any[]>;
-  constructor(private userService: UserService) {
-    console.log('test');
-    this.data = userService.getUsers().valueChanges();
+  constructor(public auth: AngularFireAuth) {
+
+  }
+
+  login() {
+    this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  logout() {
+    this.auth.auth.signOut()
   }
 
 }
