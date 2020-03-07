@@ -2,6 +2,7 @@ export class Post {
     public Author: string;
     public Title: string;
     public Content: String;
+    public Slug: String;
     public HeaderImage: String;
 
     constructor(Title: string, Content: string) {

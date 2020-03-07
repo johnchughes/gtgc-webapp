@@ -1,0 +1,10 @@
+<form class="ui form">
+    <div class="field">
+        <label>Title</label>
+        <input type="text" [(ngModel)]="post.Title" name="Title" (keyup)="onTitleChanged($event)" />
+        <p>{{post.Slug}}</p>
+    </div>
+    <div class="field">
+        <textarea [(ngModel)]="post.Content" name="Content"></textarea>
+    </div>
+</form>

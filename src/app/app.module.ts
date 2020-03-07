@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { FormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 
@@ -15,6 +15,8 @@ import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BattlereportComponent } from './battlereport/battlereport.component';
 import { HomeComponent } from './home/home.component';
+import { BlogformComponent } from './blog/blogform/blogform.component';
+import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HomeComponent } from './home/home.component';
     AboutComponent,
     BlogComponent,
     BattlereportComponent,
-    HomeComponent
+    HomeComponent,
+    BlogformComponent,
+    NewblogpostComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
