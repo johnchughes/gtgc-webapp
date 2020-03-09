@@ -1,10 +1,20 @@
-<form class="ui form">
-    <div class="field">
-        <label>Title</label>
-        <input type="text" [(ngModel)]="post.Title" name="Title" (keyup)="onTitleChanged($event)" />
-        <p>{{post.Slug}}</p>
-    </div>
-    <div class="field">
-        <textarea [(ngModel)]="post.Content" name="Content"></textarea>
-    </div>
+<form class="ui form" [formGroup]="postForm" (ngSubmit)="onFormSubmit(postForm.value)">
+
+  <div class="field">
+    <label>Title</label>
+    <input type="text" formControlName="Title" required />
+    <p>{{post.Slug}}</p>
+  </div>
+  <div class="field">
+    <textarea formControlName="Content" required></textarea>
+  </div>
+
+  <button type="submit" class="ui button">
+    Save
+  </button>
+
+  <button class="ui button">
+    Discard
+  </button>
+
 </form>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
+import { Post } from 'src/models/post';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  posts : Observable<Post>;
+
+  constructor(private postService : PostService) { 
+    this.posts = this.postService.getRecent().valueChanges();
+  }
 
   ngOnInit() {
   }

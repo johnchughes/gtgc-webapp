@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 
@@ -36,7 +36,8 @@ import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
