@@ -13,7 +13,8 @@ export class ViewblogComponent implements OnInit {
   post : Post;
 
   constructor(private postService : PostService, private route : ActivatedRoute) {
-    console.log(this.route.paramMap);
+    let slug = this.route.snapshot.paramMap.get("slug");
+    this.postService.getPostBySlug(slug).subscribe(x => this.post = x[0]);
    }
 
   ngOnInit() {

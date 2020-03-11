@@ -27,7 +27,7 @@ export class BlogformComponent implements OnInit {
   onFormSubmit($event) {
     Object.assign(this.post, $event);
     this.post.Slug = this.post.Title.replace(/\s+/g, '-').toLowerCase();
-    this.post.DateCreated = new Date();
+    this.post.DateCreated = Date.now();
     this.postService.create(this.post);
   }
 

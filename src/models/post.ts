@@ -4,7 +4,7 @@ export class Post {
     public Content: String;
     public Slug: String;
     public HeaderImage: String;
-    public DateCreated: Date;
+    public DateCreated: number;
 
     constructor(Title: string, Content: string) {
         this.Author = "3PQAVk6gnrWjPVQpJUNX05u5mRq1";

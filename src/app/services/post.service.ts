@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Post } from 'src/models/post';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  posts;
+  readonly collection : string = "posts";
 
-  constructor(private store: AngularFirestore) {
-    this.posts = store.collection("posts");
-   }
+  constructor(private store: AngularFirestore) { }
 
    create(post: Post) {
-     this.posts.add({...post});
+     this.store.collection(this.collection).add({...post});
    }
 
-   getRecent() {
-     //return this.posts.orderBy('DateCreated').limit(5);
-     return this.posts;
+   getRecent() : Observable<Post[]> {
+     return this.store.collection<Post>(this.collection).valueChanges();
    }
 
-   getPostBySlug(slug: string) {
-    this.posts.wheere("Slug", "==", slug).get();
+   getPostBySlug(slug: string) : Observable<Post[]> {
+    return this.store.collection<Post>(this.collection, ref => ref.where('Slug', '==', slug).limit(1)).valueChanges();
    }
 
 }

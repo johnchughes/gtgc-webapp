@@ -1,5 +1,24 @@
-<p>home works!</p>
 
-<p *ngFor="let post of posts | async">
-    <a [routerLink]="['posts', post.Slug]">{{post.Title}}</a>
-</p>
+
+<iframe src="https://open.spotify.com/embed-podcast/show/3m9ycjUwMbuDVIxpw4tojb" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+
+<div class="ui items">
+    <div class="item" *ngFor="let post of posts">
+        <div class="ui small image">
+            <img src="http://placekitten.com/g/300/300">
+        </div>
+        <div class="content">
+            <div class="header">
+                <a [routerLink]="['posts', post.Slug]">{{post.Title}}</a>
+            </div>
+            <div class="meta">
+                <span class="">By [user]</span>
+                <span class="">on {{post.DateCreated | date: "short"}}</span>
+                <div class="description">
+                    <p [froalaView]="post.Content.substr(0,300)"> </p>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>
