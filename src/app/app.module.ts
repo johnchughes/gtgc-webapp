@@ -7,17 +7,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 
+
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BattlereportComponent } from './battlereport/battlereport.component';
 import { HomeComponent } from './home/home.component';
 import { BlogformComponent } from './blog/blogform/blogform.component';
 import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
-
+import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
     BattlereportComponent,
     HomeComponent,
     BlogformComponent,
-    NewblogpostComponent
+    NewblogpostComponent,
+    ViewblogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FroalaEditorModule,
+    FroalaViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

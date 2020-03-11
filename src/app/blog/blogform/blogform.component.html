@@ -6,7 +6,7 @@
     <p>{{post.Slug}}</p>
   </div>
   <div class="field">
-    <textarea formControlName="Content" required></textarea>
+    <textarea [froalaEditor]="options" formControlName="Content" required></textarea>
   </div>
 
   <button type="submit" class="ui button">

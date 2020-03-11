@@ -23,7 +23,7 @@ export class PostService {
    }
 
    getPostBySlug(slug: string) {
-
+    this.posts.wheere("Slug", "==", slug).get();
    }
 
 }
