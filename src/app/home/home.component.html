@@ -1,5 +1,5 @@
-<div class="ui grid">
-    <div class="eight wide column">
+<div class="row">
+    <div class="col-sm-12 col-md-6">
         <h1>Welcome to the Gloucester Tabletop Gaming Community</h1>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id volutpat sapien. 
@@ -9,28 +9,19 @@
             Vivamus lobortis eros non sem placerat rhoncus. 
         </p>
     </div>
-    <div class="eight wide column">
+    <div class="col-sm-12 col-md-6">
         <iframe src="https://open.spotify.com/embed-podcast/show/3m9ycjUwMbuDVIxpw4tojb" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
 </div>
 
 
-<div class="ui items">
-    <div class="item" *ngFor="let post of posts">
-        <div class="ui small image">
-            <img src="http://placekitten.com/g/300/300">
-        </div>
-        <div class="content">
-            <div class="header">
-                <a [routerLink]="['posts', post.Slug]">{{post.Title}}</a>
+<div class="row" *ngFor="let post of posts">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <a [routerLink]="['posts', post.Slug]"><h5 class="card-title">{{post.Title}}</h5></a>
+                <p class="card-text">By [user] on {{post.DateCreated | date: "short"}}</p>
             </div>
-            <div class="meta">
-                <span class="">By [user]</span>
-                <span class="">on {{post.DateCreated | date: "short"}}</span>
-                <div class="description">
-                    <p [froalaView]="post.Content.substr(0,300)"> </p>
-                  </div>
-              </div>
         </div>
     </div>
 </div>

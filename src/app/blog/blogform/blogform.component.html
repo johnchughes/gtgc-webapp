@@ -1,19 +1,19 @@
-<form class="ui form" [formGroup]="postForm" (ngSubmit)="onFormSubmit(postForm.value)">
+<form class="form" [formGroup]="postForm" (ngSubmit)="onFormSubmit(postForm.value)">
 
-  <div class="field">
+  <div class="form-group">
     <label>Title</label>
-    <input type="text" formControlName="Title" required />
+    <input type="text" class="form-control" formControlName="Title" required />
     <p>{{post.Slug}}</p>
   </div>
-  <div class="field">
-    <textarea [froalaEditor]="options" formControlName="Content" required></textarea>
+  <div class="form-group">
+    <textarea class="form-control" [froalaEditor]="options" formControlName="Content" required></textarea>
   </div>
 
-  <button type="submit" class="ui button">
+  <button type="submit" class="btn btn-success">
     Save
   </button>
 
-  <a routerLink="/posts" class="ui button">
+  <a routerLink="/posts" class="btn btn-default">
     Discard
   </a>
 
