@@ -7,12 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 
-
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
@@ -42,8 +41,7 @@ import { ViewblogComponent } from './blog/viewblog/viewblog.component';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    FroalaEditorModule,
-    FroalaViewModule
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

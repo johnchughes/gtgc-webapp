@@ -11,7 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 export class BlogformComponent implements OnInit {
 
   options : Object = {
-    toolbarInline: false
+   
   };
   post : Post = new Post("", "");
   postForm;

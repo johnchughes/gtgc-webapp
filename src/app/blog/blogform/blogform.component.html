@@ -6,7 +6,10 @@
     <p>{{post.Slug}}</p>
   </div>
   <div class="form-group">
-    <textarea class="form-control" [froalaEditor]="options" formControlName="Content" required></textarea>
+    <editor
+      [(ngModel)]="post.Content"
+      apiKey="y9xzcdl06zj339ysvj2423h35esbt0zcurkbn01eupvh8bo1"
+    ></editor>
   </div>
 
   <button type="submit" class="btn btn-success">
