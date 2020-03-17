@@ -62,10 +62,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a [routerLink]="['posts', post.Slug]"><h5>{{post.Title}}</h5></a>
+                <a [routerLink]="['/posts', post.Slug]"><h5>{{post.Title}}</h5></a>
                 <p class="card-text">
                     By [user] on {{post.DateCreated | date: "short"}}
-                    <a [routerLink]="['posts', post.Slug]" class="btn btn-primary btn-sm float-right">Read</a>
+                    <a [routerLink]="['/posts', post.Slug]" class="btn btn-primary btn-sm float-right">Read</a>
                 </p>
                 
             </div>
