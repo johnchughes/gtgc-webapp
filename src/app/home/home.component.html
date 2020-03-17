@@ -1,35 +1,80 @@
 <div class="row">
     <div class="col-12">
         <p>
-            Welcomes to the Gloucester Tabletop Gaming Community (GTGC), we are a group of tabletop players playing
-            everything and anything that fits on a table ... 
-            ... someone else will be able to edit this and add a decent into.
+           
         </p>
     </div>
 </div>
 
-<div class="row ">
+<div class="row">
     <div class="col-sm-12 col-md-6">
-        <h2>The GTGC Podcast</h2>
-        <p>
-            This week Karl,Luke,Holly,Phil, & John kick off the GTGC's podcast, discussing the club, their armies
-            the latest Psychic Awakening release from Games workshop and who is the worse player at the club.
-            This content will also be editable ... 
-        </p>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Welcome to the GTGC</h4>
+                <p class="card-text">
+                    Welcomes to the Gloucester Tabletop Gaming Community (GTGC), we are a group of tabletop players playing
+                    everything and anything that fits on a table ... 
+                    ... someone else will be able to edit this and add a decent into.
+                </p>
+            </div>
+        </div>
+      
+       
     </div>
     <div class="col-sm-12 col-md-6">
         <iframe src="https://open.spotify.com/embed-podcast/show/3m9ycjUwMbuDVIxpw4tojb" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
 </div>
 
+<!--
 
-<div class="row mt-2" *ngFor="let post of posts">
+    TODO: Put this in a component;
+        args:  number of rows to show
+               condition to show.          
+-->
+<div class="row" *ngIf="posts == null">
+    <div class="col-12 mt-3" >
+        <div class="card">
+            <div class="card-body">
+                <div class="article-loading">
+                    <div class="title"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="article-loading">
+                    <div class="title"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mt-3" *ngFor="let post of posts">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a [routerLink]="['posts', post.Slug]"><h5 class="card-title">{{post.Title}}</h5></a>
-                <p class="card-text">By [user] on {{post.DateCreated | date: "short"}}</p>
+                <a [routerLink]="['posts', post.Slug]"><h5>{{post.Title}}</h5></a>
+                <p class="card-text">
+                    By [user] on {{post.DateCreated | date: "short"}}
+                    <a [routerLink]="['posts', post.Slug]" class="btn btn-primary btn-sm float-right">Read</a>
+                </p>
+                
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row mt-4" *ngIf="posts != null">
+    <div class="col-12 d-flex flex-column">
+        <a routerLink="/posts" class="btn btn-light align-self-center">View More</a>
     </div>
 </div>

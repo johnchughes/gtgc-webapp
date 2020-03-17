@@ -10,13 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  posts :Post[];
+  posts : Post[];
 
   constructor(private postService : PostService) { 
-    this.postService.getRecent().subscribe(data => this.posts = data);
-
-console.log(Date.now());
-
+    postService.getRecent().subscribe(x => this.posts = x);
   }
 
   ngOnInit() {

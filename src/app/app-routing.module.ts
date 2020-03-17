@@ -3,16 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent} from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { BattlereportComponent } from './battlereport/battlereport.component';
 import { BlogComponent } from './blog/blog.component';
 import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 import { ViewblogComponent } from './blog/viewblog/viewblog.component';
+import { LeaguesComponent } from './leagues/leagues.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent},
   { path: 'posts', component: BlogComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'battle-reports', component: BattlereportComponent },
+  { path: 'leagues', component: LeaguesComponent },
   { path: 'posts/new', component: NewblogpostComponent },
   { path: 'posts/:slug', component: ViewblogComponent }
 ];

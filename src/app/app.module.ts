@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { BlogformComponent } from './blog/blogform/blogform.component';
 import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 import { ViewblogComponent } from './blog/viewblog/viewblog.component';
+import { LeaguesComponent } from './leagues/leagues.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ViewblogComponent } from './blog/viewblog/viewblog.component';
     HomeComponent,
     BlogformComponent,
     NewblogpostComponent,
-    ViewblogComponent
+    ViewblogComponent,
+    LeaguesComponent
   ],
   imports: [
     BrowserModule,

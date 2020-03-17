@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
+import { Observable } from 'rxjs';
+import { Post } from 'src/models/post';
 
 @Component({
   selector: 'app-blog',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  posts : Post[];
+
+  constructor(private postService : PostService) {
+    postService.getRecent().subscribe(x => this.posts = x);
+   }
 
   ngOnInit() {
   }

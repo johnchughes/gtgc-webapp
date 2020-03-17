@@ -9,22 +9,22 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="/"  class="nav-link">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink=""  class="nav-link">
           Home
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a routerLink="/posts" class="nav-link">
           Posts
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a routerLink="/leagues" class="nav-link">
           Leagues
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a routerLink="/about" routerLinkActive="active" class="nav-link">
           About
         </a>
@@ -46,36 +46,11 @@
     </ul>
 </div>
 </nav>
+
   <router-outlet></router-outlet>
 </div>
-
-<!-- <div class="ui container">
-  <div class="ui secondary pointing menu">
-    <a routerLink="/" routerLinkActive="active" class="item" [routerLinkActiveOptions]="{exact:
-      true}">
-      Home
-    </a>
-    <a routerLink="/posts" routerLinkActive="active" class="item">
-      Blogs
-    </a>
-    <a routerLink="/battle-reports" routerLinkActive="active" class="item">
-      Battle Reports
-    </a>
-    <a routerLink="/about" routerLinkActive="active" class="item">
-      About
-    </a>
-    <div class="right menu" *ngIf="!(auth.authState | async)">
-      <a class="ui item" (click)="login()">
-        Login
-      </a>
-    </div>
-    <div class="right menu" *ngIf="(auth.authState | async)">
-      <a class="ui item" (click)="logout()">
-        Logout
-      </a>
-    </div>
+<footer class="footer mt-4">
+  <div class="container">
+    &copy;  Gloucester Tabletop Gaming Community 2020
   </div>
-
-  <router-outlet></router-outlet>
-</div>
- -->
+</footer>
