@@ -3,6 +3,7 @@ import { UserService } from './services/user.service';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
+import { User } from 'src/models/user';
 
 
 @Component({
@@ -13,16 +14,24 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   title = 'gtgc';
 
-  constructor(public auth: AngularFireAuth) {
+  constructor(public firebase: AngularFireAuth, private userService: UserService) {
 
   }
 
   login() {
-    this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.firebase.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
+      let user : User = {
+        uid: response.user.uid,
+        name: response.user.displayName
+      };
+      this.userService.register(user);
+    });
   }
 
   logout() {
-    this.auth.auth.signOut()
+    this.firebase.auth.signOut()
   }
+
+
 
 }

@@ -37,20 +37,20 @@
       </ul>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto" *ngIf="!(auth.authState | async)">
+      <ul class="navbar-nav ml-auto" *ngIf="!(firebase.authState | async)">
         <li>
           <a class="nav-item" class="nav-link" routeLink="/signup">
             Signup
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routeLink="/login">
+          <a class="nav-link" (click)="login()">
             Login
           </a>
         </li>
 
       </ul>
-      <ul class="navbar-nav ml-auto" *ngIf="(auth.authState | async)">
+      <ul class="navbar-nav ml-auto" *ngIf="(firebase.authState | async)">
         <li class="nav-item">
           <a class="nav-link" href="" (click)="logout()">
             Logout
