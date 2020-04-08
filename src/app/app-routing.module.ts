@@ -8,6 +8,7 @@ import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { PodcastComponent } from './podcast/podcast.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'podcast', component: PodcastComponent},
   { path: 'leagues', component: LeaguesComponent },
+  { path: 'login', component: UserLoginComponent },
   { path: 'posts/new', component: NewblogpostComponent },
   { path: 'posts/:slug', component: ViewblogComponent }
 ];

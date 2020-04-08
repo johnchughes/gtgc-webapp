@@ -21,19 +21,13 @@ export class UserService {
 
   register(user: User){
     let _u: User = this.users.find(x => x.uid == user.uid);
-    console.log(_u);
-    if(_u === null){
+    if(_u === undefined){
       this.create(user);
-    }
-    else{
-      this.update(user);
     }
   }
 
 
   update(user: User) {
-    console.log('update user');
-    //
   }
 
   create(user: User) {
