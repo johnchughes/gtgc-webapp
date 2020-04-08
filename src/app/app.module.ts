@@ -21,6 +21,8 @@ import { BlogformComponent } from './blog/blogform/blogform.component';
 import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
+import { PodcastComponent } from './podcast/podcast.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { LeaguesComponent } from './leagues/leagues.component';
     BlogformComponent,
     NewblogpostComponent,
     ViewblogComponent,
-    LeaguesComponent
+    LeaguesComponent,
+    PodcastComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

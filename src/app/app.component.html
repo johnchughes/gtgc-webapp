@@ -1,56 +1,77 @@
-
 <div class="container">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand" href="#">GTGC</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#">GTGC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink=""  class="nav-link">
-          Home
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/posts" class="nav-link">
-          Posts
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/leagues" class="nav-link">
-          Leagues
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/about" routerLinkActive="active" class="nav-link">
-          About
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="!(auth.authState | async)">
-          <a class="nav-link" (click)="login()">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/posts" class="nav-link">
+            Posts
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/leagues" class="nav-link">
+            Leagues
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/podcast" class="nav-link">
+            Podcast
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/about" routerLinkActive="active" class="nav-link">
+            About
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto" *ngIf="!(auth.authState | async)">
+        <li>
+          <a class="nav-item" class="nav-link" routeLink="/signup">
+            Signup
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routeLink="/login">
             Login
           </a>
         </li>
-        <li class="nav-item" *ngIf="(auth.authState | async)">
+
+      </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="(auth.authState | async)">
+        <li class="nav-item">
           <a class="nav-link" href="" (click)="logout()">
             Logout
           </a>
-      </li>
-    </ul>
-</div>
-</nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <router-outlet></router-outlet>
 </div>
 <footer class="footer mt-4">
   <div class="container">
-    &copy;  Gloucester Tabletop Gaming Community 2020
+    <div class="row">
+      <div class="col-12">
+
+      </div>
+      <div class="col-12">
+        &copy; Gloucester Tabletop Gaming Community 2020
+      </div>
+    </div>
+
   </div>
 </footer>
