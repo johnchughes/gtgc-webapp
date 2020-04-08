@@ -17,11 +17,15 @@ export class PostService {
    }
 
    getRecent() : Observable<Post[]> {
-     return this.store.collection<Post>(this.collection).valueChanges();
+     return this.store.collection<Post>(this.collection, ref => ref.limit(5)).valueChanges();
    }
 
    getPostBySlug(slug: string) : Observable<Post[]> {
     return this.store.collection<Post>(this.collection, ref => ref.where('Slug', '==', slug).limit(1)).valueChanges();
+   }
+
+   updatePost(post: Post){
+    //TODO
    }
 
 }
