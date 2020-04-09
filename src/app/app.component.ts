@@ -15,12 +15,6 @@ export class AppComponent {
 
   }
 
-  
-
-  logout() {
-    this.firebase.auth.signOut()
-  }
-
 
 
 }

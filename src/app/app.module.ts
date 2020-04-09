@@ -23,6 +23,8 @@ import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { PodcastComponent } from './podcast/podcast.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { NavComponent } from './container/nav/nav.component';
+import { FooterComponent } from './container/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { UserLoginComponent } from './user-login/user-login.component';
     ViewblogComponent,
     LeaguesComponent,
     PodcastComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
