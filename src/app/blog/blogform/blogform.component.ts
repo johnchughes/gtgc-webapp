@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Post } from 'src/models/post';
 import { FormBuilder } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
@@ -10,25 +10,27 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class BlogformComponent implements OnInit {
 
-  options : Object = {
-   
-  };
-  post : Post;
+  @Input() post : Post;
+  @Output() onSubmit = new EventEmitter<Post>();
+
+  content:string;
+  options : Object = {};
+
   postForm;
 
   constructor(private formBuilder: FormBuilder, private postService : PostService) { 
-    this.postForm = this.formBuilder.group(this.post);
-
+    
   }
 
   ngOnInit() {
+    this.postForm = this.formBuilder.group(this.post);
   }
 
   onFormSubmit($event) {
     Object.assign(this.post, $event);
     this.post.Slug = this.post.Title.replace(/\s+/g, '-').toLowerCase();
-    this.post.DateCreated = Date.now();
-    this.postService.create(this.post);
+    this.post.Content = this.content; //horrible hack, should probably look at using this properly. 
+    this.onSubmit.emit(this.post);
   }
 
 }
