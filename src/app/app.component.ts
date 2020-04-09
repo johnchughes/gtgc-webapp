@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from './services/user.service';
-import { AngularFireAuth } from '@angular/fire/auth';
-
 
 @Component({
   selector: 'app-root',
@@ -11,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AppComponent {
   title = 'gtgc';
 
-  constructor(public firebase: AngularFireAuth, private userService: UserService) {
+  constructor() {
 
   }
 
