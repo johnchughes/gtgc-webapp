@@ -1,13 +1,25 @@
-
+<div class="row" *ngIf="post == null">
+    <div class="col-12 mt-3" >
+        <div class="card">
+            <div class="card-body">
+                <div class="article-loading">
+                    <div class="title"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div  *ngIf="post != null">
  <div class="row">
      <div class="col-12">
-        <button class="btn btn-light btn-sm mr-2">edit</button>
+        <button class="btn btn-light btn-sm mr-2" [routerLink]="['/posts', post.DocumentRef, 'edit']">edit</button>
      </div>
  </div>
 
 <div class="row mt-2">
     <div class="col-12">
-
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">{{post.Title}}</h3>
@@ -17,4 +29,5 @@
         </div>
        
     </div>
+</div>
 </div>

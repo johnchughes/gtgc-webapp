@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Post } from 'src/models/post';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ActionSequence } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,13 @@ export class PostService {
    }
 
    getPostBySlug(slug: string) : Observable<Post[]> {
-    return this.store.collection<Post>(this.collection, ref => ref.where('Slug', '==', slug).limit(1)).valueChanges();
+    return this.store.collection<Post>(this.collection, ref => ref.where('Slug', '==', slug)).snapshotChanges().pipe(
+      map(action => action.map(a => {
+        const data = a.payload.doc.data() as Post;
+        data.DocumentRef = a.payload.doc.id;
+        return data;
+      }))
+    );
    }
 
    updatePost(post: Post){

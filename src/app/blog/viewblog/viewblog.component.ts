@@ -10,11 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewblogComponent implements OnInit {
 
-  post : Post;
+  post : Post = null;
 
   constructor(private postService : PostService, private route : ActivatedRoute) {
     let slug = this.route.snapshot.paramMap.get("slug");
-    this.postService.getPostBySlug(slug).subscribe(x => this.post = x[0]);
+    this.postService.getPostBySlug(slug).subscribe(response => {
+      if(response.length != 1){
+        //redirect to 404
+      }
+      this.post = response[0];
+    });
    }
 
   ngOnInit() {

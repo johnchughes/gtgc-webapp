@@ -13,7 +13,7 @@ export class BlogformComponent implements OnInit {
   options : Object = {
    
   };
-  post : Post = new Post("", "");
+  post : Post;
   postForm;
 
   constructor(private formBuilder: FormBuilder, private postService : PostService) { 

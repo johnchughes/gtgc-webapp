@@ -25,6 +25,7 @@ import { PodcastComponent } from './podcast/podcast.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { NavComponent } from './container/nav/nav.component';
 import { FooterComponent } from './container/footer/footer.component';
+import { EditblogComponent } from './blog/editblog/editblog.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './container/footer/footer.component';
     PodcastComponent,
     UserLoginComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    EditblogComponent
   ],
   imports: [
     BrowserModule,

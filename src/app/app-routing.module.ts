@@ -9,6 +9,7 @@ import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { PodcastComponent } from './podcast/podcast.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { EditblogComponent } from './blog/editblog/editblog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'posts/new', component: NewblogpostComponent },
-  { path: 'posts/:slug', component: ViewblogComponent }
+  { path: 'posts/:slug', component: ViewblogComponent },
+  { path: 'posts/:id/edit', component: EditblogComponent}
 ];
 
 @NgModule({
