@@ -10,17 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditblogComponent implements OnInit {
 
+  docRef: string;
   post: Post = null;
 
   constructor(private postService : PostService, private route: ActivatedRoute) { }
 
   onSubmit($event) {
-    console.log('save edits ... ', $event);
+    this.postService.updatePost(this.docRef, $event);
   }
 
   ngOnInit() {
-    let docRef = this.route.snapshot.paramMap.get("docref");
-    this.postService.getPostByRef(docRef).subscribe(response => {
+    this.docRef = this.route.snapshot.paramMap.get("docref");
+    this.postService.getPostByRef(this.docRef).subscribe(response => {
       this.post = response;
     });
   }

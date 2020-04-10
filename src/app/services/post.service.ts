@@ -39,8 +39,9 @@ export class PostService {
      return post;
    }
 
-   updatePost(post: Post){
-    //TODO
+   updatePost(ref: string, post: Post){
+    let postDoc = this.store.doc("posts/"+ref);
+    postDoc.update(post);
    }
 
 }
