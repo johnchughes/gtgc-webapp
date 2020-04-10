@@ -32,6 +32,13 @@ export class PostService {
     );
    }
 
+   getPostByRef(docRef: string) : Observable<Post> {
+     let postCollection = this.store.collection<Post>(this.collection);
+     let post = postCollection.doc<Post>(docRef).valueChanges();
+     console.log("POST => ", post);
+     return post;
+   }
+
    updatePost(post: Post){
     //TODO
    }

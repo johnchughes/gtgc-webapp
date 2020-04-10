@@ -10,6 +10,7 @@ import { LeaguesComponent } from './leagues/leagues.component';
 import { PodcastComponent } from './podcast/podcast.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { EditblogComponent } from './blog/editblog/editblog.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'posts/new', component: NewblogpostComponent },
   { path: 'posts/:slug', component: ViewblogComponent },
-  { path: 'posts/:id/edit', component: EditblogComponent}
+  { path: 'posts/:docref/edit', component: EditblogComponent},
+  { path: 'register', component: UserRegisterComponent }
 ];
 
 @NgModule({

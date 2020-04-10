@@ -24,6 +24,7 @@ export class BlogformComponent implements OnInit {
 
   ngOnInit() {
     this.postForm = this.formBuilder.group(this.post);
+    this.content = this.post.Content;
   }
 
   onFormSubmit($event) {

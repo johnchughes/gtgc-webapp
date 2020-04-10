@@ -1,1 +1,4 @@
-<p>editblog works!</p>
+<div class="" *ngIf="post == null">
+    <p>Loading Editor ... </p>
+</div>
+<app-blogform (onSubmit)="onSubmit($event)" [post]="post" *ngIf="post != null"></app-blogform>
