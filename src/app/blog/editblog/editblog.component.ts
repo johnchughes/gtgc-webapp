@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/models/post';
 import { PostService } from 'src/app/services/post.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editblog',
@@ -13,10 +13,13 @@ export class EditblogComponent implements OnInit {
   docRef: string;
   post: Post = null;
 
-  constructor(private postService : PostService, private route: ActivatedRoute) { }
+  constructor(private postService : PostService, private route: ActivatedRoute,  private router : Router) { }
 
-  onSubmit($event) {
-    this.postService.updatePost(this.docRef, $event);
+  onSubmit($event : Post) {
+    this.postService.updatePost(this.docRef, $event)
+    .then(response => {
+      this.router.navigate(['/posts', $event.Slug]);
+    });
   }
 
   ngOnInit() {

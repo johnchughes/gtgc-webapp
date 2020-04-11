@@ -19,7 +19,7 @@ export class PostService {
    }
 
    getRecent() : Observable<Post[]> {
-     return this.store.collection<Post>(this.collection, ref => ref.limit(5)).valueChanges();
+     return this.store.collection<Post>(this.collection, ref => ref.orderBy("DateCreated")).valueChanges();
    }
 
    getPostBySlug(slug: string) : Observable<Post[]> {
@@ -35,13 +35,12 @@ export class PostService {
    getPostByRef(docRef: string) : Observable<Post> {
      let postCollection = this.store.collection<Post>(this.collection);
      let post = postCollection.doc<Post>(docRef).valueChanges();
-     console.log("POST => ", post);
      return post;
    }
 
-   updatePost(ref: string, post: Post){
+   updatePost(ref: string, post: Post) : Promise<void>{
     let postDoc = this.store.doc("posts/"+ref);
-    postDoc.update(post);
+    return postDoc.update(post);
    }
 
 }
