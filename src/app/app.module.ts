@@ -22,11 +22,12 @@ import { NewblogpostComponent } from './blog/newblogpost/newblogpost.component';
 import { ViewblogComponent } from './blog/viewblog/viewblog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { PodcastComponent } from './podcast/podcast.component';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 import { NavComponent } from './container/nav/nav.component';
 import { FooterComponent } from './container/footer/footer.component';
 import { EditblogComponent } from './blog/editblog/editblog.component';
-import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     NavComponent,
     FooterComponent,
     EditblogComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
