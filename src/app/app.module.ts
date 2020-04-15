@@ -28,6 +28,7 @@ import { FooterComponent } from './container/footer/footer.component';
 import { EditblogComponent } from './blog/editblog/editblog.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './podcast/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { UserComponent } from './user/user.component';
     FooterComponent,
     EditblogComponent,
     UserRegisterComponent,
-    UserComponent
+    UserComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
