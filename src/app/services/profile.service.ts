@@ -17,7 +17,9 @@ export class ProfileService {
   }
 
   GetProfile(name:string) : Observable<Profile> {
-    return this.db.doc<Profile>('podcast-profiles/' + name).snapshotChanges().pipe(
+    let ref = "podcast-profiles/" + name;
+    console.log(ref);
+    return this.db.doc<Profile>(ref).snapshotChanges().pipe(
       map(action => {
         console.log(action);
         return action.payload.data() as Profile;

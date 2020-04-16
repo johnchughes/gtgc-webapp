@@ -12,19 +12,18 @@ export class ProfileComponent implements OnInit {
 
   @Input() name:string;
 
-  profile: Profile;
+  profile: Profile = undefined;
 
   constructor(private profileService : ProfileService) { 
-    this.profileService.GetProfile(this.name).subscribe(response => {
-      console.log(this.name);
-      console.log(response);
-    });
+    
+
   }
 
   ngOnInit() {
-
+    this.profileService.GetProfile(this.name).subscribe(response => {
+      console.log(this.name);
+      console.log(response);
+      this.profile = response;
+    });
   }
-
-  
-
 }
