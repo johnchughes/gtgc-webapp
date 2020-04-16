@@ -18,10 +18,8 @@ export class ProfileService {
 
   GetProfile(name:string) : Observable<Profile> {
     let ref = "podcast-profiles/" + name;
-    console.log(ref);
     return this.db.doc<Profile>(ref).snapshotChanges().pipe(
       map(action => {
-        console.log(action);
         return action.payload.data() as Profile;
       })
     );

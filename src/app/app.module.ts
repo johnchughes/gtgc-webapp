@@ -29,6 +29,7 @@ import { EditblogComponent } from './blog/editblog/editblog.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './podcast/profile/profile.component';
+import { TextLoadingComponent } from './core/text-loading/text-loading.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProfileComponent } from './podcast/profile/profile.component';
     EditblogComponent,
     UserRegisterComponent,
     UserComponent,
-    ProfileComponent
+    ProfileComponent,
+    TextLoadingComponent
   ],
   imports: [
     BrowserModule,

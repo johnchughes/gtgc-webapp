@@ -1,10 +1,11 @@
+<app-text-loading *ngIf="!profile"  [SectionCount]="1"></app-text-loading>
+
 <div class="row" *ngIf="profile">
     <div class="col-12 pt-3">
         <div class="card">
             <div class="card-body">
                 <h4><img src="{{profile.imgurl}}" class="profile" />{{profile.Name}}</h4>
                 <p class="card-text" [innerHtml]="profile.About">
-                
                 </p>
             </div>
         </div>
