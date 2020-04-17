@@ -14,7 +14,10 @@ export class BlogformComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Post>();
 
   content:string;
-  options : Object = {};
+  options : Object = {
+    height:500,
+    plugins: [ 'image' ]
+  };
 
   postForm;
 

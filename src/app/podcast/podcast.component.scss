@@ -1,0 +1,24 @@
+$youtube: red;
+$spotify: green;
+
+.listen-link {
+    margin-top:8px;    
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+        width:35px;
+        margin-right:8px;
+    }
+
+
+    .youtube {
+        color: $youtube;
+    }
+
+    .spotify {
+        color: $spotify;
+    }
+    
+}

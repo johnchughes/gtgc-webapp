@@ -30,6 +30,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './podcast/profile/profile.component';
 import { TextLoadingComponent } from './core/text-loading/text-loading.component';
+import { CovidComponent } from './core/covid/covid.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TextLoadingComponent } from './core/text-loading/text-loading.component
     UserRegisterComponent,
     UserComponent,
     ProfileComponent,
-    TextLoadingComponent
+    TextLoadingComponent,
+    CovidComponent
   ],
   imports: [
     BrowserModule,
