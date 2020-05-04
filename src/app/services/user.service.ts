@@ -10,29 +10,22 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private userCollcetion : AngularFirestoreCollection<User>;
+  private userCollection : AngularFirestoreCollection<User>;
   users: User[]
   constructor(private db: AngularFirestore) {
     if(!this.users){
-      this.userCollcetion = db.collection<User>('users');
-      this.userCollcetion.valueChanges().subscribe(users => this.users = users);
+      this.userCollection = db.collection<User>('users');
     }
    }
 
-  register(user: User){
-    let _u: User = this.users.find(x => x.uid == user.uid);
-    if(_u === undefined){
-      this.create(user);
-    }
-  }
-
-
-  update(user: User) {
-  }
-
-  create(user: User) {
-    console.log('create user');
-    this.userCollcetion.add(user);
+  OnLogin(user: User) {
+    let ref = this.userCollection.doc(user.uid);
+    ref.get().toPromise().then((doc) => {
+      if(!doc.exists){
+        ref.set({...user});
+      }
+    })
+    
   }
 
 }
