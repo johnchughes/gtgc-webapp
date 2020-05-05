@@ -11,8 +11,9 @@
         </div>
     </div>
 </div>
+
 <div *ngIf="post != null">
-    <div class="row">
+    <div class="row" *ngIf="auth.isPostEditor(user)">
         <div class="col-12">
             <button class="btn btn-light btn-sm mr-2" [routerLink]="['/posts', post.DocumentRef, 'edit']">edit</button>
         </div>

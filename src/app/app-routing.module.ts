@@ -11,6 +11,7 @@ import { PodcastComponent } from './podcast/podcast.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { EditblogComponent } from './blog/editblog/editblog.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { PostGuard } from './routeGuards/postGuard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -19,9 +20,9 @@ const routes: Routes = [
   { path: 'podcast', component: PodcastComponent},
   { path: 'leagues', component: LeaguesComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'posts/new', component: NewblogpostComponent },
+  { path: 'posts/new', component: NewblogpostComponent, canActivate: [PostGuard] },
   { path: 'posts/:slug', component: ViewblogComponent },
-  { path: 'posts/:docref/edit', component: EditblogComponent},
+  { path: 'posts/:docref/edit', component: EditblogComponent, canActivate: [PostGuard]},
   { path: 'register', component: UserRegisterComponent }
 ];
 

@@ -19,16 +19,14 @@ export class UserLoginComponent implements OnInit {
   login_google() {
     this.firebase.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
 
-      let roles : Roles = {
-        league_editor: false,
-        post_editor: false,
-        admin: false
-      };
-
       let user : User = {
         uid: response.user.uid,
         name: response.user.displayName,
-        roles: roles
+        roles: {
+          league_editor: false,
+          post_editor: false,
+          admin: false
+        }
       };
       
       this.userService.OnLogin(user);
