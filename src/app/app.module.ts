@@ -31,6 +31,7 @@ import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './podcast/profile/profile.component';
 import { TextLoadingComponent } from './core/text-loading/text-loading.component';
 import { CovidComponent } from './core/covid/covid.component';
+import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CovidComponent } from './core/covid/covid.component';
     UserComponent,
     ProfileComponent,
     TextLoadingComponent,
-    CovidComponent
+    CovidComponent,
+    DataprivacyComponent
   ],
   imports: [
     BrowserModule,

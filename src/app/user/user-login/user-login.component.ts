@@ -5,16 +5,29 @@ import { User } from 'src/models/user';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { Roles } from 'src/models/roles';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })
-export class UserLoginComponent implements OnInit {
+export class UserLoginComponent {
+
+  userLoginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
 
   constructor(private firebase: AngularFireAuth, private userService: UserService, private router: Router) { }
 
+  get email() : FormControl {
+    return this.userLoginForm.get('email') as FormControl;
+  }
+
+  get password() : FormControl {
+    return this.userLoginForm.get('password') as FormControl;
+  }
 
   login_google() {
     this.firebase.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
@@ -34,11 +47,24 @@ export class UserLoginComponent implements OnInit {
     });
   }
 
-  login_facebook() {
-    //TODO
-  }
+  // login_facebook() {
+  //   this.firebase.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(response => {
+  //     console.log(response);
+  //   });
+  // }
 
-  ngOnInit() {
+  async onSubmit() {
+    let email = this.email.value;
+    let password = this.password.value;
+
+    try
+    {
+      let result = await this.firebase.auth.signInWithEmailAndPassword(email, password);
+      console.log(result);
+    }
+    catch(error){
+      console.error(error);
+    }
   }
 
 }

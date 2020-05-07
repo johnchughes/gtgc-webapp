@@ -12,6 +12,7 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { EditblogComponent } from './blog/editblog/editblog.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { PostGuard } from './routeGuards/postGuard';
+import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'posts/new', component: NewblogpostComponent, canActivate: [PostGuard] },
   { path: 'posts/:slug', component: ViewblogComponent },
   { path: 'posts/:docref/edit', component: EditblogComponent, canActivate: [PostGuard]},
-  { path: 'register', component: UserRegisterComponent }
+  { path: 'signup', component: UserRegisterComponent },
+  { path: 'privacy', component: DataprivacyComponent}
 ];
 
 @NgModule({
