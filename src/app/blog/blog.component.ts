@@ -17,7 +17,7 @@ export class BlogComponent {
   posts : Post[];
 
   constructor(private postService : PostService, public auth : AuthService) {
-    postService.getRecent().subscribe(x => this.posts = x);
+    postService.getRecent().subscribe(x => this.posts = x.reverse());
     this.auth.user$.subscribe(user => this.user = user);
    }
 

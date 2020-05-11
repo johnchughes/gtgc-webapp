@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   posts : Post[];
 
   constructor(private postService : PostService) { 
-    postService.getRecent().subscribe(x => this.posts = x);
+    postService.getRecent().subscribe(x => this.posts = x.reverse());
   }
 
   ngOnInit() {
