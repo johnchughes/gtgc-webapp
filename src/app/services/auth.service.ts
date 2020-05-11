@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AuthService {
 
-  user$: Observable<User>;
+  user$: Observable<User> = EMPTY;
 
   constructor(private afAuth : AngularFireAuth, private afs: AngularFirestore) { 
     this.afAuth.user.subscribe(user => {
