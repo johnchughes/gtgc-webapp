@@ -47,3 +47,7 @@ Thumbs.db
 
 /semantic/dist/components
 /semantic/src
+
+src/environments/environment.prod.ts
+
+src/environments/environment.ts
