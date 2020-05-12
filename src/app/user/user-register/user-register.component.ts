@@ -49,6 +49,7 @@ export class UserRegisterComponent implements OnInit {
     let displayName = this.displayName.value;
 
     let newUser = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    newUser.user.sendEmailVerification();
     let user : User = {
       uid: newUser.user.uid,
       name: displayName,
