@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  posts : Post[];
+  //posts : Post[];
 
   constructor(private postService : PostService) { 
-    postService.getRecent().subscribe(x => this.posts = x.reverse());
+    //postService.getRecent().subscribe(x => this.posts = x.reverse());
   }
 
   ngOnInit() {
