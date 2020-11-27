@@ -54,8 +54,8 @@ export class UserLoginComponent {
   // }
 
   async onSubmit() {
-    let email = this.email.value;
-    let password = this.password.value;
+    let email = this.email.value.toString();
+    let password = this.password.value.toString();
 
     try
     {

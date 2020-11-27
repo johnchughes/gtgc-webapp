@@ -22,6 +22,7 @@ export class AuthService {
       }
     });
   }
+  
   getUser() : Promise<firebase.User> {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
