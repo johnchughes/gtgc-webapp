@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { first, map, take, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/models/user';
 
 
 @Component({
@@ -14,10 +16,6 @@ export class NavComponent implements OnInit {
   constructor(public firebase: AngularFireAuth, public authService : AuthService) { }
 
   ngOnInit() {
-  }
-
-  displayName() : string{
-    return "<user>";
   }
 
   logout() {

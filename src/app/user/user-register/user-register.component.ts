@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'src/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-user-register',
@@ -66,6 +67,24 @@ export class UserRegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  login_google() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
+
+      let user : User = {
+        uid: response.user.uid,
+        name: response.user.displayName,
+        roles: {
+          league_editor: false,
+          post_editor: false,
+          admin: false
+        }
+      };
+      
+      this.userService.OnLogin(user);
+      this.router.navigate(['']);
+    });
   }
 
 }

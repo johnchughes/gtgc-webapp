@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
-import { Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, of } from 'rxjs';
 import { User } from 'src/models/user';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -10,7 +10,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AuthService {
 
-  user$: Observable<User> = EMPTY;
+  user$: Observable<User> = of();
+  
 
   constructor(private afAuth : AngularFireAuth, private afs: AngularFirestore) { 
     this.afAuth.user.subscribe(user => {
@@ -18,7 +19,7 @@ export class AuthService {
         this.user$ = this.afs.doc<User>('users/'+user.uid).valueChanges();
       }
       else {
-        this.user$ = EMPTY;
+        this.user$ = of();
       }
     });
   }
