@@ -13,6 +13,8 @@ import { EditblogComponent } from './blog/editblog/editblog.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { PostGuard } from './routeGuards/postGuard';
 import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
+import { GamesComponent } from './games/games.component';
+import { WarhammerNinthComponent } from './games/warhammer-ninth/warhammer-ninth.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -24,8 +26,10 @@ const routes: Routes = [
   { path: 'posts/new', component: NewblogpostComponent, canActivate: [PostGuard] },
   { path: 'posts/:slug', component: ViewblogComponent },
   { path: 'posts/:docref/edit', component: EditblogComponent, canActivate: [PostGuard]},
-  { path: 'signup', component: UserRegisterComponent },
-  { path: 'privacy', component: DataprivacyComponent}
+  { path: 'register', component: UserRegisterComponent },
+  { path: 'privacy', component: DataprivacyComponent},
+  { path: 'games', component: GamesComponent },
+  { path: 'games/40k-9th/:docref', component: WarhammerNinthComponent }
 ];
 
 @NgModule({

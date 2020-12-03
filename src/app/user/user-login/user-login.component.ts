@@ -47,12 +47,6 @@ export class UserLoginComponent {
     });
   }
 
-  // login_facebook() {
-  //   this.firebase.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(response => {
-  //     console.log(response);
-  //   });
-  // }
-
   async onSubmit() {
     let email = this.email.value.toString();
     let password = this.password.value.toString();

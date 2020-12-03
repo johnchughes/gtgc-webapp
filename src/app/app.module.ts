@@ -32,6 +32,8 @@ import { ProfileComponent } from './podcast/profile/profile.component';
 import { TextLoadingComponent } from './core/text-loading/text-loading.component';
 import { CovidComponent } from './core/covid/covid.component';
 import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
+import { GamesComponent } from './games/games.component';
+import { WarhammerNinthComponent } from './games/warhammer-ninth/warhammer-ninth.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
     ProfileComponent,
     TextLoadingComponent,
     CovidComponent,
-    DataprivacyComponent
+    DataprivacyComponent,
+    GamesComponent,
+    WarhammerNinthComponent
   ],
   imports: [
     BrowserModule,

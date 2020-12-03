@@ -32,13 +32,18 @@
             About
           </a>
         </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target="#main_nav" *ngIf="(firebase.authState | async)">
+          <a routerLink="/games" routerLinkActive="active" data-toggle="collapse" class="nav-link">
+            Games
+          </a>
+        </li>
       </ul>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <!-- <ul class="navbar-nav ml-auto" *ngIf="!(firebase.authState | async)">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLinkActive="active" routerLink="/signup">
-            Signup
+          <a class="nav-link" routerLinkActive="active" routerLink="/register">
+            Register
           </a>
         </li>
         <li class="nav-item" routerLinkActive="active"> 
