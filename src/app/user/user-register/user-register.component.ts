@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'src/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-user-register',
@@ -44,9 +44,9 @@ export class UserRegisterComponent implements OnInit {
 
   async onSubmit() {
     this.busy = true;
-    let email = this.email.value;
-    let password = this.password.value;
-    let displayName = this.displayName.value;
+    let email = this.email.value.toString();
+    let password = this.password.value.toString();
+    let displayName = this.displayName.value.toString();
 
     let newUser = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
     newUser.user.sendEmailVerification();
@@ -59,11 +59,32 @@ export class UserRegisterComponent implements OnInit {
         admin :false
       }
     };
+
+
+
     this.userService.OnLogin(user);
     this.router.navigate(['']);
   }
 
   ngOnInit() {
+  }
+
+  login_google() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(response => {
+
+      let user : User = {
+        uid: response.user.uid,
+        name: response.user.displayName,
+        roles: {
+          league_editor: false,
+          post_editor: false,
+          admin: false
+        }
+      };
+      
+      this.userService.OnLogin(user);
+      this.router.navigate(['']);
+    });
   }
 
 }
