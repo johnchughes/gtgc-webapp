@@ -57,8 +57,6 @@ export class UserLoginComponent {
     let email = this.email.value.toString();
     let password = this.password.value.toString();
 
-    console.log(email, password);
-
     try
     {
       let result = await this.firebase.auth.signInWithEmailAndPassword(email, password);
