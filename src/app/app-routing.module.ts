@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'posts/new', component: NewblogpostComponent, canActivate: [PostGuard] },
   { path: 'posts/:slug', component: ViewblogComponent },
   { path: 'posts/:docref/edit', component: EditblogComponent, canActivate: [PostGuard]},
-  { path: 'signup', component: UserRegisterComponent },
+  { path: 'register', component: UserRegisterComponent },
   { path: 'privacy', component: DataprivacyComponent}
 ];
 
